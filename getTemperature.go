@@ -13,7 +13,7 @@ func getWeather(cityName string) string {
 	appid := os.Getenv("APIKEY")
 	if appid == "" {
 		fmt.Printf("API KEY не установлен")
-		return "error..."
+		log.Fatalf("API KEY не установлен")
 	}
 	// Выполнение запроса на API OpenWeatherMap
 	response, err := resty.New().R().
